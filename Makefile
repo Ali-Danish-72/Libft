@@ -21,7 +21,10 @@ STR_DIR = \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strlcpy.c \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strncmp.c \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strnstr.c \
-			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strrchr.c
+			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strrchr.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_strjoin.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_strtrim.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_substr.c
 
 CHK_DIR = \
 			Part\ 1\ -\ Libc\ Functions/checker_functions/ft_isalnum.c \
