@@ -48,6 +48,7 @@ size_t	ft_strlen(char const *str);
 int		ft_strncmp(char const *s1, char const *s2, size_t n);
 char	*ft_strnstr(char const *haystack, char const *needle, size_t len);
 char	*ft_strrchr(char const *s, int c);
+char	*ft_strtrim(char const *s, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /*****************************************************************************/
