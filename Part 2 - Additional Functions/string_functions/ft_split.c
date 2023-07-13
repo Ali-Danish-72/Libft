@@ -5,73 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 10:20:02 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/11 10:20:04 by mdanish          ###   ########.fr       */
+/*   Created: 2023/07/13 18:53:35 by mdanish           #+#    #+#             */
+/*   Updated: 2023/07/13 18:53:37 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
-// #include <sys/_types/_null.h>
+#include <sys/_types/_null.h>
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		sep_ctr;
-	int		assign_count;
+	int		spl_len;
+	int		spl_ctr;
+	int		store;
+	int		index;
 	char	**split;
 
-	i = -1;
-	sep_ctr = 1;
-	j = 0;
-	assign_count = 0;
-	while (s[++i])
+	spl_len = 0;
+	spl_ctr = 1;
+	index = -1;
+	while (s[++index])
 	{
-		if (s[i] == c)
-			sep_ctr++;
+		if (index && s[index] == c && s[index - 1] != c)
+			spl_ctr++;
 	}
-	split = (char **)malloc(sizeof(char *) * (sep_ctr + 1));
+	split = (char **)malloc(sizeof(char *) * (spl_ctr));
 	if (!split)
 		return (NULL);
-	split[sep_ctr] = NULL;
-	while (i-- >= 0)
+	store = spl_ctr;
+	while (index-- >= 0)
 	{
-		if (i == -1 || s[i] == c)
+		if ((s[index] == c && s[index + 1] != c) || index == -1)
 		{
-			split[--sep_ctr] = (char *)malloc(sizeof(char) * (j + 1));
-			if (!split[sep_ctr])
-				split[sep_ctr] = NULL;
-			split[sep_ctr][j] = '\0';
-			while (j--)
-			{
-				split[sep_ctr][assign_count] = s[i + assign_count + 1];
-				assign_count++;
-			}
-			assign_count = 0;
-			j++;
+			split[--spl_ctr] = ft_substr(s, index + 1, spl_len);
+			spl_len = 0;
 		}
-		else
-			j++;
+		else if (s[index] != c) spl_len++;
 	}
+	// if (!index) index = -1;
+	// for (int i = -1; i < store; ++i){
+	// 	free(split[i]);
+	// }
+	// split[store] = (void *)0;
 	return (split);
 }
+
 // #include <stdio.h>
 // int main()
 // {
 // 	int i = -1;
-// 	char **str = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
-// 	while (++i < 13)
+// 	char **str = ft_split(" r        lorem      ipsum        dolor     sit amet , consectetur adipiscing elit. Sed non        risus. Suspendisse", ' ');
+// 	while (++i < 15)
 // 		printf("%s$\n", str[i]);
 // }
-
-	// split[sep_ctr - 1] = (char *)malloc(sizeof(char) * (j + 1));
-	// while (split[a])
-	// {
-	// 	while (split[a][b])
-	// 	{
-	// 		if (s[i] == c)
-	// 			split[a++][b] = '\0';
-	// 		else
-	// 			split[a][b++] = s[i++];
-	// 	}
-	// }
