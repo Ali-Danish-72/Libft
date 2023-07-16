@@ -61,10 +61,12 @@ STR_FILES = \
 			ft_split.o \
 			ft_strchr.o \
 			ft_strdup.o \
+			ft_striteri.o \
 			ft_strjoin.o \
 			ft_strlen.o \
 			ft_strlcat.o \
 			ft_strlcpy.o \
+			ft_strmapi.o \
 			ft_strncmp.o \
 			ft_strnstr.o \
 			ft_strrchr.o \
