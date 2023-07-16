@@ -87,10 +87,10 @@ CONV_FILES = \
 			ft_toupper.o
 
 PRT_FILES = \
-			ft_putchar_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c \
-			ft_putstr_fd.c
+			ft_putchar_fd.o \
+			ft_putendl_fd.o \
+			ft_putnbr_fd.o \
+			ft_putstr_fd.o
 
 OBJS = $(MEM_FIlES) $(STR_FILES) $(CHK_FILES) $(CONV_FILES) $(PRT_FILES)
 
