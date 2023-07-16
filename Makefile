@@ -22,7 +22,10 @@ STR_DIR = \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strncmp.c \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strnstr.c \
 			Part\ 1\ -\ Libc\ Functions/string_functions/ft_strrchr.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_split.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_striteri.c \
 			Part\ 2\ -\ Additional\ Functions/string_functions/ft_strjoin.c \
+			Part\ 2\ -\ Additional\ Functions/string_functions/ft_strmapi.c \
 			Part\ 2\ -\ Additional\ Functions/string_functions/ft_strtrim.c \
 			Part\ 2\ -\ Additional\ Functions/string_functions/ft_substr.c
 
@@ -36,7 +39,14 @@ CHK_DIR = \
 CONV_DIR = \
 			Part\ 1\ -\ Libc\ Functions/converter_functions/ft_atoi.c \
 			Part\ 1\ -\ Libc\ Functions/converter_functions/ft_tolower.c \
-			Part\ 1\ -\ Libc\ Functions/converter_functions/ft_toupper.c
+			Part\ 1\ -\ Libc\ Functions/converter_functions/ft_toupper.c \
+			Part\ 2\ -\ Additional\ Functions/converter_functions/ft_itoa.c
+
+PRT_DIR = \
+			Part\ 2\ -\ Additional\ Functions/print_functions/ft_putchar_fd.c \
+			Part\ 2\ -\ Additional\ Functions/print_functions/ft_putendl_fd.c \
+			Part\ 2\ -\ Additional\ Functions/print_functions/ft_putnbr_fd.c \
+			Part\ 2\ -\ Additional\ Functions/print_functions/ft_putstr_fd.c \
 
 MEM_FIlES = \
 			ft_bzero.o \
@@ -48,14 +58,18 @@ MEM_FIlES = \
 			ft_memset.o
 
 STR_FILES = \
+			ft_split.o \
 			ft_strchr.o \
 			ft_strdup.o \
+			ft_strjoin.o \
 			ft_strlen.o \
 			ft_strlcat.o \
 			ft_strlcpy.o \
 			ft_strncmp.o \
 			ft_strnstr.o \
-			ft_strrchr.o
+			ft_strrchr.o \
+			ft_strtrim.o \
+			ft_substr.o
 
 CHK_FILES = \
 			ft_isalnum.o \
@@ -66,17 +80,22 @@ CHK_FILES = \
 
 CONV_FILES = \
 			ft_atoi.o \
+			ft_itoa.o \
 			ft_tolower.o \
 			ft_toupper.o
 
-OBJS = $(MEM_FIlES) $(STR_FILES) $(CHK_FILES) $(CONV_FILES)
+PRT_FILES = \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c
 
-# OBJ = $(FIlE:.c=.o) 
+OBJS = $(MEM_FIlES) $(STR_FILES) $(CHK_FILES) $(CONV_FILES) $(PRT_FILES)
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(MEM_DIR) $(STR_DIR) $(CHK_DIR) $(CONV_DIR)
+	$(CC) $(CFLAGS) -c $(MEM_DIR) $(STR_DIR) $(CHK_DIR) $(CONV_DIR) $(PRT_DIR)
 	ar ru $(NAME) $(OBJS)
 
 clean:

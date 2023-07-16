@@ -5,56 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/13 18:53:35 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/13 18:53:37 by mdanish          ###   ########.fr       */
+/*   Created: 2023/07/15 19:48:44 by mdanish           #+#    #+#             */
+/*   Updated: 2023/07/15 19:48:45 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
-#include <sys/_types/_null.h>
 
-char	**ft_split(char const *s, char c)
+static int	word_length(char const *src, char delim)
 {
-	int		spl_len;
-	int		spl_ctr;
-	int		store;
-	int		index;
-	char	**split;
+	int	i;
+	int	word_len;
 
-	spl_len = 0;
-	spl_ctr = 1;
-	index = -1;
-	while (s[++index])
-	{
-		if (index && s[index] == c && s[index - 1] != c)
-			spl_ctr++;
-	}
-	split = (char **)malloc(sizeof(char *) * (spl_ctr));
-	if (!split)
-		return (NULL);
-	store = spl_ctr;
-	while (index-- >= 0)
-	{
-		if ((s[index] == c && s[index + 1] != c) || index == -1)
-		{
-			split[--spl_ctr] = ft_substr(s, index + 1, spl_len);
-			spl_len = 0;
-		}
-		else if (s[index] != c) spl_len++;
-	}
-	// if (!index) index = -1;
-	// for (int i = -1; i < store; ++i){
-	// 	free(split[i]);
-	// }
-	// split[store] = (void *)0;
-	return (split);
+	i = -1;
+	word_len = 0;
+	while (src[++i] && src[i] != delim)
+		word_len++;
+	return (word_len);
 }
 
-// #include <stdio.h>
-// int main()
-// {
-// 	int i = -1;
-// 	char **str = ft_split(" r        lorem      ipsum        dolor     sit amet , consectetur adipiscing elit. Sed non        risus. Suspendisse", ' ');
-// 	while (++i < 15)
-// 		printf("%s$\n", str[i]);
-// }
+static int	word_count(char const *src, char delim)
+{
+	int	i;
+	int	j;
+	int	word_ctr;
+
+	i = 0;
+	word_ctr = 0;
+	while (src[i])
+	{
+		if (src[i] != delim)
+		{
+			j = i;
+			while (src[j] != delim && src[j])
+				j++;
+			i = j;
+			word_ctr++;
+		}
+		if (src[i])
+			i++;
+	}
+	return (word_ctr);
+}
+
+static char	**free_split(char **split, int word_ctr)
+{
+	while (word_ctr--)
+		free (split[word_ctr]);
+	free (split);
+	return (NULL);
+}
+
+char	**ft_split(char const *src, char delim)
+{
+	int		i;
+	int		j;
+	int		word_ctr;
+	char	**split;
+
+	i = -1;
+	j = 0;
+	if (!src)
+		return (NULL);
+	word_ctr = word_count(src, delim);
+	split = (char **)malloc(sizeof(char *) * (word_ctr + 1));
+	if (!split)
+		return (NULL);
+	split[word_ctr] = NULL;
+	while (++i < word_ctr)
+	{
+		while (src[j] == delim)
+			j++;
+		split[i] = ft_substr(src, j, word_length((src + j), delim));
+		if (!split[i])
+			return (free_split(split, i));
+		j += word_length((src + j), delim);
+	}
+	return (split);
+}
