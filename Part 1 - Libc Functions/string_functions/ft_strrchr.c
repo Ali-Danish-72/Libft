@@ -26,9 +26,3 @@ char	*ft_strrchr(char const *s, int c)
 	}
 	return (0);
 }
-
-// int main()
-// {
-// 	char s[] = "Hello how";
-//  	printf("%s\n", strrchr(s, 'k'));
-// }

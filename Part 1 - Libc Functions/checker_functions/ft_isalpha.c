@@ -18,14 +18,3 @@ int	ft_isalpha(int c)
 		return (1);
 	return (0);
 }
-/*
-int	main()
-{
-	char str[] = "Hello World!";
-	printf("%d\n", ft_isalpha('|'));
-	printf("%d\n", ft_isalpha(' '));
-	printf("%d\n", ft_isalpha('v'));
-	printf("%d\n", ft_isalpha('J'));
-	printf("%d\n", ft_isalpha(str[5]));
-}
-*/

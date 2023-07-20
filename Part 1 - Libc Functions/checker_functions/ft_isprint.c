@@ -18,18 +18,3 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-
-// int main()
-// {
-// 	char str[] = "Hello World!";
-// 	printf("%d\n", ft_isprint(98));
-// 	printf("%d\n", isprint(98));
-// 	printf("%d\n", ft_isprint(-123));
-// 	printf("%d\n", isprint(-123));
-// 	printf("%d\n", ft_isprint(12213));
-// 	printf("%d\n", isprint(12213));
-// 	printf("%d\n", ft_isprint(23));
-// 	printf("%d\n", isprint(23));
-// 	printf("%d\n", ft_isprint(str[5]));
-// 	printf("%d\n", isprint(str[5]));
-// }

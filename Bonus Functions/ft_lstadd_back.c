@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 07:08:53 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/17 07:08:54 by mdanish          ###   ########.fr       */
+/*   Created: 2023/07/17 07:12:24 by mdanish           #+#    #+#             */
+/*   Updated: 2023/07/17 07:12:25 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*last;
+
+	if (lst && new_node)
+	{
+		if (!*lst)
+			*lst = new_node;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new_node;
+		}
+	}
 }

@@ -18,19 +18,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-/*
-int	main()
-{
-	char str[] = "Hello5 World!";
-	printf("%d\n", ft_isalnum('|'));
-	printf("%d\n", isalnum('|'));
-	printf("%d\n", ft_isalnum(' '));
-	printf("%d\n", isalnum(' '));
-	printf("%d\n", ft_isalnum('v'));
-	printf("%d\n", isalnum('v'));
-	printf("%d\n", ft_isalnum('J'));
-	printf("%d\n", isalnum('J'));
-	printf("%d\n", ft_isalnum(str[5]));
-	printf("%d\n", isalnum(str[5]));
-}
-*/

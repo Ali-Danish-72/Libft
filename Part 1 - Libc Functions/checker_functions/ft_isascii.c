@@ -18,14 +18,3 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
-/*
-int	main()
-{
-	char str[] = "Hello World!";
-	printf("%d\n", ft_isalpha(98));
-	printf("%d\n", ft_isalpha(-123));
-	printf("%d\n", ft_isalpha(12213));
-	printf("%d\n", ft_isalpha(23));
-	printf("%d\n", ft_isalpha(str[5]));
-}
-*/

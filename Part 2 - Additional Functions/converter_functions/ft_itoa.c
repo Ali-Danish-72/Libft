@@ -48,16 +48,9 @@ char	*ft_itoa(int n)
 		num /= 10;
 		if (digit < 0)
 			digit *= -1;
-		str[ctr] = digit + '0';
+		str[ctr] = digit + 48;
 		if (n < 0)
 			str[0] = '-';
 	}
 	return (str);
 }
-// #include <stdio.h>
-// int main()
-// {
-// 	int	test = INT32_MIN;
-
-// 	printf("%s\n", ft_itoa(test));
-// }
