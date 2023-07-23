@@ -18,6 +18,8 @@ static char	*trim(char const *s, int s_len, int j)
 	char	*trimmed;
 
 	i = 0;
+	if (s_len < j)
+		s_len = j;
 	trimmed = (char *)malloc(sizeof(char) * (s_len - j + 1));
 	if (!trimmed)
 		return (NULL);
@@ -38,7 +40,7 @@ char	*ft_strtrim(char const *s, char const *set)
 
 	if (!s)
 		return (NULL);
-	if (!*set)
+	if (!set || !*set)
 		return (ft_strdup(s));
 	i = -1;
 	j = 0;

@@ -32,9 +32,9 @@ static int	remove_bs(char const *str)
 
 int	ft_atoi(char const *str)
 {
-	int				i;
-	int				sign;
-	long int		nb;
+	int			i;
+	int			sign;
+	long int	nb;
 
 	i = remove_bs(str);
 	nb = 0;
@@ -44,6 +44,6 @@ int	ft_atoi(char const *str)
 	else
 		sign++;
 	while (str[i] > 47 && str[i] < 58)
-		nb = (nb * 10) + str[i++] - '0';
+		nb = (nb * 10) + str[i++] - 48;
 	return (nb * sign);
 }
