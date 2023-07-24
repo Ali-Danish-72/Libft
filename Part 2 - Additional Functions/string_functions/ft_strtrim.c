@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
 static char	*trim(char const *s, int s_len, int j)
 {
@@ -18,8 +18,6 @@ static char	*trim(char const *s, int s_len, int j)
 	char	*trimmed;
 
 	i = 0;
-	if (s_len < j)
-		s_len = j;
 	trimmed = (char *)malloc(sizeof(char) * (s_len - j + 1));
 	if (!trimmed)
 		return (NULL);
@@ -45,14 +43,14 @@ char	*ft_strtrim(char const *s, char const *set)
 	i = -1;
 	j = 0;
 	s_len = ft_strlen(s);
-	while (set[++i] && s_len)
+	while (set[++i] && j < s_len)
 	{
 		if (s[j] && s[j] == set[i])
 		{
 			i = -1;
 			j++;
 		}
-		else if (s[s_len - 1] == set[i] && j < s_len)
+		else if (s[s_len - 1] == set[i])
 		{
 			i = -1;
 			s_len--;
