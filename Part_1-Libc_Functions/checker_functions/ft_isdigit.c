@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdanish <mdanish@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mdanish <mdanish@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/03 15:09:41 by mdanish           #+#    #+#             */
-/*   Updated: 2023/07/03 15:58:47 by mdanish          ###   ########.fr       */
+/*   Created: 2023/07/03 15:11:19 by mdanish           #+#    #+#             */
+/*   Updated: 2023/07/03 15:11:29 by mdanish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isdigit(int c)
 {
-	if (c >= 0 && c <= 127)
+	if (c > 47 && c < 58)
 		return (1);
 	return (0);
 }
